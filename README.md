@@ -6,7 +6,7 @@
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://asinghvi17.github.io/NASAEarthObservations.jl/dev)
 [![Build Status](https://gitlab.com/asinghvi17/NASAEarthObservations.jl/badges/master/build.svg)](https://gitlab.com/asinghvi17/NASAEarthObservations.jl/pipelines)
 
-This is a simple package which allows download of data from NASA's Near Earth Observation program.
+This is a simple package which allows download of data from NASA's Earth Observation program.
 
 We reference this URL for the data, and you should examine the directory structure there to find datasets to download: https://neo.sci.gsfc.nasa.gov/archive
 
@@ -25,4 +25,4 @@ julia> observations("blackmarble/2016/global")
 ".julia/artifacts/8c0a387256847375b7d76bb2ba9b9193e985de46"
 ```
 
-This package has been made possible by NASA
+This package has been made possible by [NASA's Earth Observation program](https://neo.sci.gsfc.nasa.gov/)
