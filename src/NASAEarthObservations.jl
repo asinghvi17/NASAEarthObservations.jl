@@ -9,7 +9,7 @@ const rooturl = "neo.sci.gsfc.nasa.gov/archive/"
 function _download_files(imgpath)
     dir = mktempdir()
     cd(dir) do
-        run(`wget --no-parent -nd -nv -r https://$imgpath`)
+        run(`wget --no-parent -nd -nv -np -r https://$imgpath`)
         rm.(readdir(glob"index.html*")) # remove all non image files
         rm("robots.txt")
     end
@@ -52,7 +52,8 @@ function observations(path)
             end
         end
 
-        bind_artifact!(mutable_artifacts_toml,
+        bind_artifact!(
+            mutable_artifacts_toml,
             dir_name,
             dir_hash;
             force=true
