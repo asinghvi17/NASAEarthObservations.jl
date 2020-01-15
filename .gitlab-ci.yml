@@ -1,0 +1,19 @@
+Julia 1.3:
+  image: julia:1.3
+  script: julia --project='@.' -e 'using Pkg; Pkg.build(); Pkg.test()'
+pages:
+  image: julia:1.3
+  stage: deploy
+  script:
+    - julia --project=docs -e '
+          using Pkg;
+          Pkg.develop(PackageSpec(path=pwd()));
+          Pkg.instantiate();
+          include("docs/make.jl");'
+    - mkdir -p public
+    - mv docs/build public/dev
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
