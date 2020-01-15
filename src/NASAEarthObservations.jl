@@ -18,6 +18,15 @@ end
 
 download_files(dirname; root = rooturl) = _download_files(root*dirname)
 
+"""
+    observations(path)
+
+Downloads (if necessary) and stores the data found at the path given, relative
+to [`$rooturl`]($rooturl).
+
+This method downloads the observations and then stores them as an artifact,
+so that redownloading becomes unneccessary.
+"""
 function observations(path)
 
     if startswith(path, "/")
